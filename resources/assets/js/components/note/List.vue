@@ -12,12 +12,13 @@
 <script>
 import { mapState } from 'vuex';
 export default {
-    data(){
+    data() {
         return {
 
         }
     },
     methods: {
+
     },
     mounted() {
         this.$store.dispatch('fetch');

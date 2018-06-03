@@ -10,7 +10,7 @@
                         <router-link :to="{ name: 'dashboard' }">Dashboard</router-link>
                     </li>
 
-                    <li>
+                    <li v-if="$auth.check()">
                         <router-link :to="{ name: 'notes' }">Notes</router-link>
                     </li>
 

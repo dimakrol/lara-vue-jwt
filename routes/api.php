@@ -24,11 +24,13 @@ Route::group(['middleware' => 'jwt.auth'], function() {
 Route::group(['middleware' => 'jwt.refresh'], function(){
     Route::get('auth/refresh', 'AuthController@refresh');
     Route::post('auth/logout', 'AuthController@logout');
+
+    Route::resource('notes', 'NotesController');
+
+    Route::put('/notes/{note}/toggleFavourite', 'NotesController@toggleFavourite');
 });
 
-Route::resource('notes', 'NotesController');
 
-Route::put('/notes/{note}/toggleFavourite', 'NotesController@toggleFavourite');
 
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
