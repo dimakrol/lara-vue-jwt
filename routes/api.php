@@ -26,6 +26,10 @@ Route::group(['middleware' => 'jwt.refresh'], function(){
     Route::post('auth/logout', 'AuthController@logout');
 });
 
+Route::resource('notes', 'NotesController');
+
+Route::put('/notes/{note}/toggleFavourite', 'NotesController@toggleFavourite');
+
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});

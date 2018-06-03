@@ -44,7 +44,7 @@
             };
         },
         methods: {
-            register(){
+            register() {
                 this.$auth.register({
                     params: {
                         name: this.name,

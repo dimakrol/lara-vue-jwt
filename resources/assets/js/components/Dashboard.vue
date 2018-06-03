@@ -16,6 +16,7 @@
         },
         mounted() {
             this.user = this.$auth.user();
+            this.$http.get('/notes');
         }
     }
 </script>

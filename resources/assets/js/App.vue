@@ -10,6 +10,10 @@
                         <router-link :to="{ name: 'dashboard' }">Dashboard</router-link>
                     </li>
 
+                    <li>
+                        <router-link :to="{ name: 'notes' }">Notes</router-link>
+                    </li>
+
                     <li v-if="!$auth.check()" class="pull-right">
                         <router-link :to="{ name: 'login' }">Login</router-link>
                     </li>
