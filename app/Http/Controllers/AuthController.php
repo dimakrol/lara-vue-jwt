@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterFormRequest;
 use App\User;
 use Illuminate\Http\Request;
-use JWTAuth;
-
 class AuthController extends Controller
 {
     public function register(RegisterFormRequest $request)
@@ -25,7 +23,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
-        if ( ! $token = JWTAuth::attempt($credentials)) {
+        if ( ! $token = auth()->attempt($credentials)) {
             return response([
                 'status' => 'error',
                 'error' => 'invalid.credentials',
@@ -38,12 +36,11 @@ class AuthController extends Controller
             ->header('Authorization', $token);
     }
 
-    public function user(Request $request)
+    public function user()
     {
-        $user = User::find(\Auth::user()->id);
         return response([
             'status' => 'success',
-            'data' => $user
+            'data' => auth()->user()
         ]);
     }
 
@@ -57,7 +54,7 @@ class AuthController extends Controller
 
     public function logout()
     {
-        JWTAuth::invalidate();
+        auth()->logout();
         return response([
             'status' => 'success',
             'msg' => 'Logged out Successfully.'

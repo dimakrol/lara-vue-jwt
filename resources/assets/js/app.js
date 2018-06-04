@@ -9,7 +9,7 @@ import router from './routes';
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
 
-axios.defaults.baseURL = 'http://lv-auth.local/api';
+axios.defaults.baseURL = 'http://localhost:8000/api';
 
 
 Vue.router = router;

@@ -53,8 +53,10 @@
                     },
                     redirect: null
                 }).then(() => {
+                    // console.log('here')
                     this.success = true
                 }).catch(response => {
+                    console.log('error');
                     this.error = true;
                     this.errors = response.response.data.errors;
                 })
