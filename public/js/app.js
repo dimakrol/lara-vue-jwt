@@ -17211,6 +17211,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {},
     mounted: function mounted() {
+        console.log(this.$auth.user());
         this.user = this.$auth.user();
         this.$http.get('/notes');
     }

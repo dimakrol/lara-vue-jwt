@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterFormRequest;
 use App\User;
 use Illuminate\Http\Request;
+use JWTAuth;
+
 class AuthController extends Controller
 {
     public function register(RegisterFormRequest $request)
@@ -49,7 +51,7 @@ class AuthController extends Controller
     {
         return response([
             'status' => 'success'
-        ]);
+        ])->header('Authorization', auth()->refresh());
     }
 
     public function logout()

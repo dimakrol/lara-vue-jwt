@@ -11,7 +11,6 @@ Vue.use(VueAxios, axios);
 
 axios.defaults.baseURL = 'http://localhost:8000/api';
 
-
 Vue.router = router;
 
 Vue.use(require('@websanova/vue-auth'), {
